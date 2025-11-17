@@ -121,7 +121,8 @@ def get_city_coordinates(city_name: str):
     Takes city name and returns its latitude and longitude (rounded to 2 digits after dot).
     """
     # Initialize Nominatim API (for getting lat and long of the city)
-    geolocator = Nominatim(user_agent="MyApp")
+    # Use a descriptive user_agent to comply with Nominatim's Usage Policy
+    geolocator = Nominatim(user_agent="air-quality-monitoring-app/1.0")
     city = geolocator.geocode(city_name)
 
     latitude = round(city.latitude, 2)
